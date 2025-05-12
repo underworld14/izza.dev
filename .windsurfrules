@@ -13,7 +13,7 @@
 - Blog Content: Store blog content in markdown files.
 
 ## Styling & UI
-- Tailwind CSS: Use Tailwind for all custom styling.
+- Tailwind CSS: Use Tailwind css v4 for all custom styling.
 - Utility-First: Use utility classes over custom CSS whenever possible.
 - Accessibility & Responsiveness: Ensure all designs are accessible and responsive.
 

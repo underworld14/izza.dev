@@ -1,0 +1,50 @@
+---
+const experiences = [
+  {
+    company: "Company Name",
+    position: "Senior Developer",
+    period: "Jan 2023 - Present",
+    description: "Led development of key features for enterprise applications, implemented responsive design patterns, and mentored junior developers on best practices."
+  },
+  {
+    company: "Previous Company",
+    position: "Web Developer",
+    period: "Mar 2021 - Dec 2022",
+    description: "Developed and maintained client websites, created custom components, and improved site performance through optimization techniques."
+  },
+  {
+    company: "First Company",
+    position: "Junior Developer",
+    period: "Jun 2020 - Feb 2021",
+    description: "Assisted in front-end development tasks, collaborated with the design team, and implemented UI components using modern frameworks."
+  }
+];
+---
+
+<section class="section-spacing container-custom">
+  <h2 class="text-2xl sm:text-3xl font-semibold mb-10">Experience</h2>
+  
+  <div class="space-y-12">
+    {experiences.map((exp, index) => (
+      <div class="relative pl-8 before:absolute before:left-0 before:top-0 before:h-full before:w-px before:bg-neutral-200 dark:before:bg-neutral-800">
+        <div class="absolute left-0 top-1 h-4 w-4 -translate-x-1/2 rounded-full border-2 border-neutral-200 bg-white dark:border-neutral-700 dark:bg-neutral-900"></div>
+        
+        <div class="space-y-2">
+          <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
+            <h3 class="text-xl font-medium">{exp.company}</h3>
+            <span class="text-sm text-neutral-600 dark:text-neutral-400">{exp.period}</span>
+          </div>
+          
+          <p class="text-neutral-700 dark:text-neutral-300 font-medium">{exp.position}</p>
+          <p class="text-neutral-600 dark:text-neutral-400">{exp.description}</p>
+        </div>
+      </div>
+    ))}
+    
+    <div class="flex justify-center pt-6">
+      <a href="/experience" class="btn btn-secondary">
+        View full résumé
+      </a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,136 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+const posts = [
+  {
+    title: "Building a Minimalist Personal Website with Astro",
+    description: "Learn how I built a minimalist and elegant personal website using Astro and Tailwind CSS v4.",
+    date: "2025-05-01",
+    slug: "building-minimalist-website-astro",
+    categories: ["Web Development", "Design"]
+  },
+  {
+    title: "The Power of Server-Side Rendering in Modern Web Development",
+    description: "Exploring the benefits of SSR and how it improves performance and SEO for personal websites.",
+    date: "2025-04-15",
+    slug: "power-of-server-side-rendering",
+    categories: ["Web Development", "Performance"]
+  },
+  {
+    title: "Minimalism in Web Design: Less is More",
+    description: "How embracing minimalist principles can lead to better user experiences and more effective websites.",
+    date: "2025-03-22",
+    slug: "minimalism-web-design",
+    categories: ["Design", "UX"]
+  },
+  {
+    title: "Getting Started with Tailwind CSS v4",
+    description: "A comprehensive guide to the latest version of Tailwind CSS and how to leverage its new features.",
+    date: "2025-03-10",
+    slug: "getting-started-tailwind-css-v4",
+    categories: ["CSS", "Tutorials"]
+  },
+  {
+    title: "Optimizing Images for the Web: A Practical Guide",
+    description: "Learn how to optimize images for faster load times without sacrificing quality.",
+    date: "2025-02-28",
+    slug: "optimizing-images-web",
+    categories: ["Performance", "Tutorials"]
+  },
+  {
+    title: "Creating Accessible Interfaces: Best Practices",
+    description: "Essential accessibility techniques that every web developer should implement in their projects.",
+    date: "2025-02-15",
+    slug: "creating-accessible-interfaces",
+    categories: ["Accessibility", "UX"]
+  }
+];
+
+// Get unique categories
+const allCategories = [...new Set(posts.flatMap(post => post.categories))];
+---
+
+<Layout 
+  title="Blog | Izza Dev"
+  description="Articles and insights about web development, design, and technology."
+>
+  <Navbar />
+  
+  <main>
+    <section class="section-spacing container-custom">
+      <h1 class="text-4xl font-bold mb-10">Blog</h1>
+      
+      <div class="grid gap-10 lg:grid-cols-3">
+        <div class="lg:col-span-2 space-y-10">
+          {posts.map(post => (
+            <article class="group">
+              <a href={`/blog/${post.slug}`} class="block">
+                <time datetime={post.date} class="text-sm text-neutral-600 dark:text-neutral-400">
+                  {new Date(post.date).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                  })}
+                </time>
+                
+                <h2 class="text-2xl font-semibold mt-1 mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                  {post.title}
+                </h2>
+                
+                <p class="text-neutral-600 dark:text-neutral-400 mb-4">{post.description}</p>
+                
+                <div class="flex flex-wrap gap-2">
+                  {post.categories.map(category => (
+                    <span class="inline-flex items-center rounded-full bg-neutral-100 px-2.5 py-0.5 text-xs font-medium text-neutral-800 dark:bg-neutral-800 dark:text-neutral-300">
+                      {category}
+                    </span>
+                  ))}
+                </div>
+              </a>
+            </article>
+          ))}
+        </div>
+        
+        <div class="space-y-8">
+          <div class="rounded-lg border border-neutral-200 p-6 dark:border-neutral-800">
+            <h2 class="text-xl font-semibold mb-4">Categories</h2>
+            
+            <div class="flex flex-wrap gap-2">
+              {allCategories.map(category => (
+                <a href={`/blog/category/${category.toLowerCase().replace(/\s+/g, '-')}`} class="inline-flex items-center rounded-full bg-neutral-100 px-3 py-1 text-sm font-medium text-neutral-700 hover:bg-neutral-200 dark:bg-neutral-800 dark:text-neutral-300 dark:hover:bg-neutral-700 transition-colors">
+                  {category}
+                </a>
+              ))}
+            </div>
+          </div>
+          
+          <div class="rounded-lg border border-neutral-200 p-6 dark:border-neutral-800">
+            <h2 class="text-xl font-semibold mb-4">Newsletter</h2>
+            <p class="text-neutral-600 dark:text-neutral-400 mb-4">Subscribe to get notified about new articles and updates.</p>
+            
+            <form class="space-y-4">
+              <div>
+                <label for="email" class="sr-only">Email address</label>
+                <input 
+                  type="email" 
+                  id="email" 
+                  placeholder="Enter your email" 
+                  class="w-full rounded-md border border-neutral-300 bg-white px-3 py-2 text-neutral-900 placeholder:text-neutral-500 focus:border-blue-500 focus:outline-none dark:border-neutral-700 dark:bg-neutral-900 dark:text-white dark:placeholder:text-neutral-400 dark:focus:border-blue-400"
+                  required
+                />
+              </div>
+              
+              <button type="submit" class="btn btn-primary w-full">
+                Subscribe
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <Footer />
+</Layout>
