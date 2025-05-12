@@ -2,124 +2,42 @@
 import Layout from '../../layouts/Layout.astro';
 import Navbar from '../../components/Navbar.astro';
 import Footer from '../../components/Footer.astro';
+import { getCollection, type CollectionEntry } from 'astro:content';
 
 export async function getStaticPaths() {
-  // In a real site, you would fetch this from your markdown files or a CMS
-  const posts = [
-    {
-      title: "Building a Minimalist Personal Website with Astro",
-      description: "Learn how I built a minimalist and elegant personal website using Astro and Tailwind CSS v4.",
-      date: "2025-05-01",
-      slug: "building-minimalist-website-astro",
-      categories: ["Web Development", "Design"],
-      content: `
-        <p>When I decided to rebuild my personal website, I had a clear vision: create something minimal, elegant, and blazing fast. After exploring various frameworks, I settled on <a href="https://astro.build" class="text-blue-600 dark:text-blue-400 hover:underline">Astro</a> combined with Tailwind CSS v4.</p>
-        
-        <h2 id="why-astro">Why Astro?</h2>
-        <p>Astro offers the perfect balance between static site generation and dynamic components. Its "Islands Architecture" allows me to keep most of the site static while adding interactivity only where needed. This results in incredibly fast page loads and a great user experience.</p>
-        
-        <h2 id="design-principles">Design Principles</h2>
-        <p>For the design, I embraced minimalism with these core principles:</p>
-        <ul>
-          <li>Clean typography with careful attention to hierarchy</li>
-          <li>Generous white space to give content room to breathe</li>
-          <li>Limited color palette with strategic accent colors</li>
-          <li>Subtle animations that enhance rather than distract</li>
-        </ul>
-        
-        <h2 id="implementation">Implementation</h2>
-        <p>The implementation process was straightforward:</p>
-        <ol>
-          <li>Set up an Astro project with Tailwind CSS v4</li>
-          <li>Created a design system using Tailwind's utility classes</li>
-          <li>Built reusable components for the site structure</li>
-          <li>Added content with a focus on readability and clarity</li>
-          <li>Optimized for performance and accessibility</li>
-        </ol>
-        
-        <h2 id="challenges">Challenges</h2>
-        <p>One challenge was adapting to Tailwind CSS v4's new syntax and features. The documentation was incredibly helpful, and the migration was worth it for the improved developer experience.</p>
-        
-        <h2 id="results">Results</h2>
-        <p>The final website scores 100 on all Lighthouse metrics: Performance, Accessibility, Best Practices, and SEO. The static-first approach means the site loads almost instantly, even on slower connections.</p>
-        
-        <h2 id="conclusion">Conclusion</h2>
-        <p>Building a personal website with Astro and Tailwind CSS v4 was a delightful experience. The combination of these modern tools allowed me to create exactly what I envisioned: a fast, elegant, and minimalist personal presence on the web.</p>
-        
-        <p>If you're considering a similar approach for your own site, I highly recommend this stack. Feel free to <a href="/contact" class="text-blue-600 dark:text-blue-400 hover:underline">reach out</a> if you have any questions about my implementation!</p>
-      `
-    },
-    {
-      title: "The Power of Server-Side Rendering in Modern Web Development",
-      description: "Exploring the benefits of SSR and how it improves performance and SEO for personal websites.",
-      date: "2025-04-15",
-      slug: "power-of-server-side-rendering",
-      categories: ["Web Development", "Performance"],
-      content: `
-        <p>Server-Side Rendering (SSR) has seen a resurgence in popularity, and for good reason. In this article, we'll explore why SSR matters and how it can improve your web projects.</p>
-        
-        <h2 id="what-is-ssr">What is Server-Side Rendering?</h2>
-        <p>SSR is a technique where your web pages are generated on the server rather than in the browser. The server processes the page, including data fetching, and sends a fully rendered HTML page to the client.</p>
-        
-        <h2 id="benefits">Key Benefits</h2>
-        <p>Server-Side Rendering offers several advantages:</p>
-        <ul>
-          <li>Improved initial load performance, especially on slower devices</li>
-          <li>Better SEO as search engines can easily crawl your content</li>
-          <li>Enhanced user experience with faster time-to-content</li>
-          <li>Reduced client-side JavaScript burden</li>
-        </ul>
-        
-        <h2 id="implementation">Modern SSR Implementations</h2>
-        <p>Today's frameworks make SSR more accessible than ever:</p>
-        <ul>
-          <li>Next.js offers both SSR and static generation</li>
-          <li>Astro provides partial hydration with its Islands Architecture</li>
-          <li>SvelteKit and Nuxt bring SSR capabilities to Svelte and Vue</li>
-        </ul>
-        
-        <h2 id="use-cases">Ideal Use Cases</h2>
-        <p>SSR is particularly valuable for:</p>
-        <ul>
-          <li>Content-heavy websites like blogs and documentation</li>
-          <li>E-commerce sites where SEO and performance are critical</li>
-          <li>Public-facing applications where first impression matters</li>
-        </ul>
-        
-        <h2 id="conclusion">Finding the Right Balance</h2>
-        <p>The beauty of modern frameworks is that they don't force an all-or-nothing approach. You can use SSR where it makes sense while keeping interactive elements client-side.</p>
-        
-        <p>As with any technology choice, the key is understanding your specific needs. For many personal websites and content-focused projects, SSR or a hybrid approach offers the best of both worlds: performance and interactivity.</p>
-      `
-    }
-    // In a real implementation, you would add more posts
-  ];
+  // Get all blog posts from the content collection
+  const blogEntries = await getCollection('blog');
   
-  return posts.map(post => {
-    return {
-      params: { slug: post.slug },
-      props: { post }
-    };
-  });
+  return blogEntries.map((entry: CollectionEntry<'blog'>) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
 }
 
-const { post } = Astro.props;
+type Props = {
+  entry: CollectionEntry<'blog'>;
+};
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
 
 // Format the date for display
-const formattedDate = new Date(post.date).toLocaleDateString('en-US', {
+const formattedDate = new Date(entry.data.date).toLocaleDateString('en-US', {
   year: 'numeric',
   month: 'long',
   day: 'numeric'
 });
 
 // Get reading time (roughly 200 words per minute)
-const wordCount = post.content.split(/\s+/).length;
+const content = await entry.body;
+const wordCount = content.split(/\s+/).length;
 const readingTime = Math.max(1, Math.round(wordCount / 200));
+
 ---
 
 <Layout 
-  title={`${post.title} | Izza Dev`}
-  description={post.description}
+  title={`${entry.data.title} | Izza Dev`}
+  description={entry.data.description}
 >
   <Navbar />
   
@@ -128,40 +46,42 @@ const readingTime = Math.max(1, Math.round(wordCount / 200));
       <div class="max-w-3xl mx-auto">
         <div class="mb-8">
           <div class="flex flex-wrap gap-2 mb-3">
-            {post.categories.map(category => (
+            {entry.data.categories.map((category: string) => (
               <a 
                 href={`/blog/category/${category.toLowerCase().replace(/\s+/g, '-')}`}
-                class="inline-flex items-center rounded-full bg-neutral-100 px-2.5 py-0.5 text-xs font-medium text-neutral-800 hover:bg-neutral-200 dark:bg-neutral-800 dark:text-neutral-300 dark:hover:bg-neutral-700 transition-colors"
+                class="inline-flex items-center rounded-full bg-neutral-100 px-2.5 py-0.5 text-xs font-medium text-neutral-800 dark:bg-neutral-800 dark:text-neutral-300"
               >
                 {category}
               </a>
             ))}
           </div>
           
-          <h1 class="text-3xl sm:text-4xl font-bold mb-4">{post.title}</h1>
+          <h1 class="text-4xl font-bold mb-4">{entry.data.title}</h1>
           
-          <div class="flex items-center text-sm text-neutral-600 dark:text-neutral-400">
-            <time datetime={post.date}>{formattedDate}</time>
+          <div class="flex flex-wrap items-center text-sm text-neutral-600 dark:text-neutral-400">
+            <time datetime={entry.data.date.toISOString()}>{formattedDate}</time>
             <span class="mx-2">•</span>
             <span>{readingTime} min read</span>
           </div>
         </div>
         
-        <div class="prose prose-neutral max-w-none dark:prose-invert" set:html={post.content} />
+        <div class="prose prose-neutral max-w-none dark:prose-invert">
+          <Content />
+        </div>
         
         <div class="mt-12 pt-6 border-t border-neutral-200 dark:border-neutral-800">
           <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div>
               <h2 class="text-lg font-medium">Share this article</h2>
               <div class="flex items-center gap-3 mt-2">
-                <a href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(`https://yourdomain.com/blog/${post.slug}`)}&text=${encodeURIComponent(post.title)}`} target="_blank" rel="noopener noreferrer" class="text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white">
+                <a href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(`https://yourdomain.com/blog/${entry.slug}`)}&text=${encodeURIComponent(entry.data.title)}`} target="_blank" rel="noopener noreferrer" class="text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white">
                   <span class="sr-only">Share on Twitter</span>
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5">
                     <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
                   </svg>
                 </a>
                 
-                <a href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(`https://yourdomain.com/blog/${post.slug}`)}`} target="_blank" rel="noopener noreferrer" class="text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white">
+                <a href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(`https://yourdomain.com/blog/${entry.slug}`)}`} target="_blank" rel="noopener noreferrer" class="text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white">
                   <span class="sr-only">Share on LinkedIn</span>
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5">
                     <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>

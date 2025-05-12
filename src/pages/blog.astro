@@ -2,54 +2,29 @@
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
+import { getCollection, type CollectionEntry } from 'astro:content';
 
-const posts = [
-  {
-    title: "Building a Minimalist Personal Website with Astro",
-    description: "Learn how I built a minimalist and elegant personal website using Astro and Tailwind CSS v4.",
-    date: "2025-05-01",
-    slug: "building-minimalist-website-astro",
-    categories: ["Web Development", "Design"]
-  },
-  {
-    title: "The Power of Server-Side Rendering in Modern Web Development",
-    description: "Exploring the benefits of SSR and how it improves performance and SEO for personal websites.",
-    date: "2025-04-15",
-    slug: "power-of-server-side-rendering",
-    categories: ["Web Development", "Performance"]
-  },
-  {
-    title: "Minimalism in Web Design: Less is More",
-    description: "How embracing minimalist principles can lead to better user experiences and more effective websites.",
-    date: "2025-03-22",
-    slug: "minimalism-web-design",
-    categories: ["Design", "UX"]
-  },
-  {
-    title: "Getting Started with Tailwind CSS v4",
-    description: "A comprehensive guide to the latest version of Tailwind CSS and how to leverage its new features.",
-    date: "2025-03-10",
-    slug: "getting-started-tailwind-css-v4",
-    categories: ["CSS", "Tutorials"]
-  },
-  {
-    title: "Optimizing Images for the Web: A Practical Guide",
-    description: "Learn how to optimize images for faster load times without sacrificing quality.",
-    date: "2025-02-28",
-    slug: "optimizing-images-web",
-    categories: ["Performance", "Tutorials"]
-  },
-  {
-    title: "Creating Accessible Interfaces: Best Practices",
-    description: "Essential accessibility techniques that every web developer should implement in their projects.",
-    date: "2025-02-15",
-    slug: "creating-accessible-interfaces",
-    categories: ["Accessibility", "UX"]
-  }
-];
+// Get all blog posts that aren't drafts
+const posts = await getCollection('blog', ({ data }: { data: { draft?: boolean } }) => {
+  return !data.draft;
+});
+
+// Sort posts by date in descending order (newest first)
+posts.sort((a: CollectionEntry<'blog'>, b: CollectionEntry<'blog'>) => b.data.date.valueOf() - a.data.date.valueOf());
+
+// Format for display
+const formattedPosts =
+posts.map((post: CollectionEntry<'blog'>) => ({
+  title: post.data.title,
+  description: post.data.description,
+  date: post.data.date,
+  slug: post.slug,
+  categories: post.data.categories
+}))
+;
 
 // Get unique categories
-const allCategories = [...new Set(posts.flatMap(post => post.categories))];
+const allCategories = [...new Set(formattedPosts.flatMap((post) => post.categories))];
 ---
 
 <Layout 
@@ -64,7 +39,7 @@ const allCategories = [...new Set(posts.flatMap(post => post.categories))];
       
       <div class="grid gap-10 lg:grid-cols-3">
         <div class="lg:col-span-2 space-y-10">
-          {posts.map(post => (
+          {formattedPosts.map((post) => (
             <article class="group">
               <a href={`/blog/${post.slug}`} class="block">
                 <time datetime={post.date} class="text-sm text-neutral-600 dark:text-neutral-400">
@@ -98,9 +73,9 @@ const allCategories = [...new Set(posts.flatMap(post => post.categories))];
             <h2 class="text-xl font-semibold mb-4">Categories</h2>
             
             <div class="flex flex-wrap gap-2">
-              {allCategories.map(category => (
-                <a href={`/blog/category/${category.toLowerCase().replace(/\s+/g, '-')}`} class="inline-flex items-center rounded-full bg-neutral-100 px-3 py-1 text-sm font-medium text-neutral-700 hover:bg-neutral-200 dark:bg-neutral-800 dark:text-neutral-300 dark:hover:bg-neutral-700 transition-colors">
-                  {category}
+              {allCategories.map((category) => (
+                <a href={`/blog/category/${String(category).toLowerCase().replace(/\s+/g, '-')}`} class="inline-flex items-center rounded-full bg-neutral-100 px-3 py-1 text-sm font-medium text-neutral-700 hover:bg-neutral-200 dark:bg-neutral-800 dark:text-neutral-300 dark:hover:bg-neutral-700 transition-colors">
+                  {String(category)}
                 </a>
               ))}
             </div>
