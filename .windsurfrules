@@ -1,0 +1,30 @@
+# Project Guidelines
+
+## General Code Style & Formatting
+- JavaScript/TypeScript: Follow the Airbnb Style Guide.
+- Component Naming: Use PascalCase for all component file names (e.g., `UserCard.astro`).
+- Exports: Prefer named exports for components and utilities.
+- Formatting & Linting: Use Prettier and ESLint to ensure consistent formatting and code quality.
+
+## Project Structure & Architecture
+- Astro Structure: Follow Astro's recommended structure (`src/pages`, `src/components`, `src/layouts`).
+- Islands Architecture: Components are static by default. Hydrate interactivity only where necessary.
+- Organization: Group components by feature or domain for clarity and scalability.
+- Blog Content: Store blog content in markdown files.
+
+## Styling & UI
+- Tailwind CSS: Use Tailwind for all custom styling.
+- Utility-First: Use utility classes over custom CSS whenever possible.
+- Accessibility & Responsiveness: Ensure all designs are accessible and responsive.
+
+## Data Fetching & Forms
+- Static Content: Use Astro's built-in data fetching (e.g., `getStaticPaths`, `fetch` in `.astro` files).
+
+## State Management & Logic
+- Local State: Default to local state and props.
+- Global State: Use context or stores (Astro state management, React Context, etc.) only for shared/global state.
+
+## Personal Web Page Considerations
+- Performance & SEO: Optimize for performance and SEO (static-first approach).
+- Minimal Dependencies: Keep dependencies minimal.
+- Maintainability: Prioritize readability and maintainability, especially for solo/small-team projects.
