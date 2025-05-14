@@ -22,7 +22,7 @@ const currentPath = Astro.url.pathname;
         navItems.map(item => (
           <a 
             href={item.href} 
-            class={`text-sm ${currentPath === item.href ? 'font-medium text-neutral-900 dark:text-white' : 'text-neutral-700 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white'} transition-colors`}
+            class={`text-sm ${currentPath === item.href ? 'font-medium text-primary dark:text-primary' : 'text-neutral-700 hover:text-primary dark:text-neutral-400 dark:hover:text-primary'} transition-colors`}
           >
             {item.name}
           </a>
@@ -51,7 +51,7 @@ const currentPath = Astro.url.pathname;
         navItems.map(item => (
           <a 
             href={item.href} 
-            class={`block py-2 px-3 rounded-md text-sm ${currentPath === item.href ? 'font-medium bg-neutral-100 text-neutral-900 dark:bg-neutral-800 dark:text-white' : 'text-neutral-700 hover:bg-neutral-100 dark:text-neutral-400 dark:hover:bg-neutral-800'} transition-colors`}
+            class={`block py-2 px-3 rounded-md text-sm ${currentPath === item.href ? 'font-medium bg-primary/10 text-primary dark:bg-primary/20 dark:text-primary' : 'text-neutral-700 hover:bg-neutral-100 dark:text-neutral-400 dark:hover:bg-neutral-800'} transition-colors`}
           >
             {item.name}
           </a>
