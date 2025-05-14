@@ -77,7 +77,7 @@ const education = [
   {
     institution: "Asia Cyber University",
     degree: "Bachelor's Degree in Informatics Engineering",
-    period: "2018 - 2022",
+    period: "2022 - Present",
     description: "Focused on software engineering, web development, and information systems. Applied learning through practical projects and real-world applications."
   }
 ];
@@ -116,11 +116,10 @@ const certifications = [
 ];
 
 const skills = {
-  frontend: ["React.js", "React Native", "Next.js", "Remix", "Svelte", "SvelteKit", "JavaScript", "TypeScript", "TailwindCSS", "TanStack Query", "ShadCN UI", "Zustand", "Redux"],
-  backend: ["Node.js", "Express", "Prisma", "Sequelize", "Adonis.js", "Supabase"],
+  frontend: ["React.js", "React Native", "Next.js", "Remix", "Svelte", "SvelteKit", "JavaScript", "TypeScript", "TailwindCSS", "TanStack Query", "Shadcn UI"],
+  backend: ["Node.js", "Express", "Prisma", "Sequelize", "Adonis.js", "Supabase", "SQL", "Golang", "Fiber"],
   testing: ["Jest", "Vitest", "React Testing Library", "Cypress", "Mocha", "Chai", "Supertest"],
-  devops: ["GitHub Actions", "Docker", "EC2", "Fly.io", "DigitalOcean", "Railway"],
-  soft: ["Problem Solving", "Communication", "Team Collaboration", "Leadership", "Adaptability"]
+  devops: ["GitHub Actions", "Docker", "AWS EC2", "AWS S3", "AWS Lightsail", "AWS Beanstalk", "Fly.io", "DigitalOcean", "Railway"],
 };
 ---
 
@@ -190,7 +189,7 @@ const skills = {
             ))}
           </div>
           
-          <h2 class="text-2xl font-semibold mt-16 mb-6">Certifications</h2>
+          <h2 class="text-2xl font-semibold mt-16 mb-6">Courses & Certifications</h2>
           
           <div class="space-y-6">
             {certifications.map(cert => (
@@ -253,18 +252,6 @@ const skills = {
             <div class="flex flex-wrap gap-2">
               {skills.devops.map(skill => (
                 <span class="inline-flex items-center rounded-full bg-indigo-50 px-3 py-1 text-sm font-medium text-indigo-700 dark:bg-indigo-900/20 dark:text-indigo-300">
-                  {skill}
-                </span>
-              ))}
-            </div>
-          </div>
-          
-          <div class="rounded-lg border border-neutral-200 p-6 dark:border-neutral-800">
-            <h2 class="text-xl font-semibold mb-4">Soft Skills</h2>
-            
-            <div class="flex flex-wrap gap-2">
-              {skills.soft.map(skill => (
-                <span class="inline-flex items-center rounded-full bg-purple-50 px-3 py-1 text-sm font-medium text-purple-700 dark:bg-purple-900/20 dark:text-purple-300">
                   {skill}
                 </span>
               ))}
