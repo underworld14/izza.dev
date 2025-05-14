@@ -1,43 +1,68 @@
 ---
-import Mail from '@lucide/astro/icons/mail'
+import Mail from "@lucide/astro/icons/mail";
+import { RetroGrid } from "@/components/magicui/retro-grid";
 ---
 
-<section class="section-spacing container-custom">
+<section class="relative section-spacing container-custom">
   <div class="max-w-3xl">
     <div class="space-y-6">
       <h1 class="text-4xl sm:text-5xl font-bold tracking-tight">
         Yusril Izza Aulia
       </h1>
-      <p class="text-xl text-neutral-700 dark:text-neutral-300 max-w-prose text-justify">
-        Frontend & Fullstack Developer passionate about building high-performance web applications and seamless user experiences. Excited about AI Engineering—currently exploring Generative AI, RAG, and AI Agents—while continually expanding my expertise across the full stack. Always learning, always building.
+      <p
+        class="text-xl text-neutral-700 dark:text-neutral-300 max-w-prose text-justify"
+      >
+        Frontend & Fullstack Developer passionate about building
+        high-performance web applications and seamless user experiences. Excited
+        about AI Engineering—currently exploring Generative AI, RAG, and AI
+        Agents—while continually expanding my expertise across the full stack.
+        Always learning, always building.
       </p>
       <div class="flex flex-wrap gap-4">
-        <a href="/about" class="btn btn-primary">
-          About Me
-        </a>
-        <a href="/contact" class="btn btn-secondary">
-          Get in touch
-        </a>
+        <a href="/about" class="btn btn-primary"> About Me </a>
+        <a href="/contact" class="btn btn-secondary"> Get in touch </a>
       </div>
-      
+
       <div class="flex items-center gap-4 pt-4">
-        <a href="https://github.com/underworld14" target="_blank" rel="noopener noreferrer" class="text-neutral-700 hover:text-primary dark:text-neutral-400 dark:hover:text-primary">
+        <a
+          href="https://github.com/underworld14"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-neutral-700 hover:text-primary dark:text-neutral-400 dark:hover:text-primary"
+        >
           <span class="sr-only">GitHub</span>
           <i class="text-2xl devicon-github-original"></i>
         </a>
-        <a href="https://linkedin.com/in/izza-srv" target="_blank" rel="noopener noreferrer" class="text-neutral-700 hover:text-primary dark:text-neutral-400 dark:hover:text-primary">
+        <a
+          href="https://linkedin.com/in/izza-srv"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-neutral-700 hover:text-primary dark:text-neutral-400 dark:hover:text-primary"
+        >
           <span class="sr-only">LinkedIn</span>
           <i class="text-2xl devicon-linkedin-plain"></i>
         </a>
-        <a href="mailto:izzasrv@gmail.com" target="_blank" rel="noopener noreferrer" class="text-neutral-700 hover:text-primary dark:text-neutral-400 dark:hover:text-primary">
+        <a
+          href="mailto:izzasrv@gmail.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-neutral-700 hover:text-primary dark:text-neutral-400 dark:hover:text-primary"
+        >
           <span class="sr-only">Email</span>
           <Mail size={24} />
         </a>
-        <a href="https://x.com/underworld146" target="_blank" rel="noopener noreferrer" class="text-neutral-700 hover:text-primary dark:text-neutral-400 dark:hover:text-primary">
+        <a
+          href="https://x.com/underworld146"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-neutral-700 hover:text-primary dark:text-neutral-400 dark:hover:text-primary"
+        >
           <span class="sr-only">Twitter</span>
           <i class="text-2xl devicon-twitter-original"></i>
         </a>
       </div>
     </div>
   </div>
+
+  <RetroGrid className="w-full absolute inset-0" />
 </section>

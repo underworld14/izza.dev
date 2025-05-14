@@ -1,100 +1,116 @@
 ---
-import { Image } from 'astro:assets';
-import { BorderBeam } from './magicui/border-beam'
+import { Image } from "astro:assets";
+import { BorderBeam } from "./magicui/border-beam";
 
-import luminapdfImg from '@/assets/projects/luminapdf.png'
-import utarakanImg from '@/assets/projects/utarakan.png'
-import carecryptoImg from '@/assets/projects/carecrypto.png'
-import adhyaksamartImg from '@/assets/projects/adhyaksamart.png'
+import luminapdfImg from "@/assets/projects/luminapdf.png";
+import utarakanImg from "@/assets/projects/utarakan.png";
+import carecryptoImg from "@/assets/projects/carecrypto.png";
+import adhyaksamartImg from "@/assets/projects/adhyaksamart.png";
 
 const projects = [
   {
     title: "LuminaPDF",
-    description: "SaaS platform providing PDF and screenshot generation APIs from HTML/web content. Currently in beta testing.",
+    description:
+      "SaaS platform providing PDF and screenshot generation APIs from HTML/web content. Currently in beta testing.",
     tags: ["NestJS", "SvelteKit", "Supabase", "Puppeteer"],
     link: "https://staging.luminapdf.xyz",
-    image: luminapdfImg
+    image: luminapdfImg,
   },
   {
     title: "Utarakan.id",
-    description: "Anonymous confession platform with over 600 users, integrating modern web technologies and payment processing.",
+    description:
+      "Anonymous confession platform with over 600 users, integrating modern web technologies and payment processing.",
     tags: ["SvelteKit", "Supabase", "TWA", "Mayar Payment"],
     link: "https://utarakan.id",
-    image: utarakanImg
+    image: utarakanImg,
   },
   {
     title: "Carecrypto",
-    description: "Crypto community platform for users in Seoul with membership-based access to premium content.",
+    description:
+      "Crypto community platform for users in Seoul with membership-based access to premium content.",
     tags: ["Next.js", "Express.js", "MongoDB", "AWS"],
     link: "https://carecrypto.com",
-    image: carecryptoImg
+    image: carecryptoImg,
   },
   {
     title: "Adhyaksamart Voucher",
-    description: "Digital voucher management system for Adhyaksamart members in Yogyakarta; manages 1,000+ vouchers monthly.",
+    description:
+      "Digital voucher management system for Adhyaksamart members in Yogyakarta; manages 1,000+ vouchers monthly.",
     tags: ["SvelteKit", "SQLite"],
     link: "https://adhyaksamart.my.id",
-    image: adhyaksamartImg
+    image: adhyaksamartImg,
   },
   {
     title: "Sharekorean",
-    description: "Job portal for Korean residents in the U.S., offering specialized employment opportunities and resources.",
+    description:
+      "Job portal for Korean residents in the U.S., offering specialized employment opportunities and resources.",
     tags: ["Next.js", "Express.js", "MongoDB", "DigitalOcean"],
     link: "https://sharekorean.com",
-    image: luminapdfImg // Replace with actual image when available
+    image: luminapdfImg, // Replace with actual image when available
   },
   {
     title: "Abqory Sharia",
-    description: "Islamic economic education company offering courses and events for specialized knowledge sharing.",
+    description:
+      "Islamic economic education company offering courses and events for specialized knowledge sharing.",
     tags: ["Next.js", "Strapi"],
     link: "https://abqorysharia.com",
-    image: carecryptoImg // Replace with actual image when available
-  }
+    image: carecryptoImg, // Replace with actual image when available
+  },
 ];
 ---
 
 <section class="section-spacing container-custom">
   <h2 class="text-2xl sm:text-3xl font-semibold mb-10">Projects</h2>
-  
+
   <div class="relative">
     <div class="grid gap-8 md:grid-cols-3 max-h-[650px] overflow-hidden">
-      {projects.slice(0, 6).map(project => (
-        <div class="group relative overflow-hidden rounded-lg border border-neutral-200 bg-white transition-all hover:shadow-md dark:border-neutral-800 dark:bg-neutral-900">
-          <Image
-            src={project.image}
-            alt={project.title}
-            class="w-full aspect-video object-cover rounded-lg"
-          />
-          
-          <div class="space-y-4 p-6">
-            <h3 class="text-xl font-medium">{project.title}</h3>
-            <p class="text-neutral-600 dark:text-neutral-400">{project.description}</p>
-            
-            <div class="flex flex-wrap gap-2">
-              {project.tags.map(tag => (
-                <span class="inline-flex items-center rounded-full bg-neutral-100 px-2.5 py-0.5 text-xs font-medium text-neutral-800 dark:bg-neutral-800 dark:text-neutral-300">
-                  {tag}
-                </span>
-              ))}
-            </div>
-          </div>
-          
-          <a href={project.link} class="absolute inset-0" target="_blank" rel="noopener noreferrer">
-            <span class="sr-only">View {project.title}</span>
-          </a>
+      {
+        projects.slice(0, 6).map((project) => (
+          <div class="group relative overflow-hidden rounded-lg border border-neutral-200 bg-white transition-all hover:shadow-md dark:border-neutral-800 dark:bg-neutral-900">
+            <Image
+              src={project.image}
+              alt={project.title}
+              class="w-full aspect-video object-cover rounded-lg"
+            />
 
-          <BorderBeam client:load duration={6} size={100} />
-        </div>
-      ))}
+            <div class="space-y-4 p-6">
+              <h3 class="text-xl font-medium">{project.title}</h3>
+              <p class="text-neutral-600 dark:text-neutral-400">
+                {project.description}
+              </p>
+
+              <div class="flex flex-wrap gap-2">
+                {project.tags.map((tag) => (
+                  <span class="inline-flex items-center rounded-full bg-neutral-100 px-2.5 py-0.5 text-xs font-medium text-neutral-800 dark:bg-neutral-800 dark:text-neutral-300">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <a
+              href={project.link}
+              class="absolute inset-0"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="sr-only">View {project.title}</span>
+            </a>
+
+            <BorderBeam client:load duration={6} size={100} />
+          </div>
+        ))
+      }
     </div>
-    
+
     {/* Gradient overlay */}
-    <div class="absolute z-10 bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-white dark:from-neutral-900 to-transparent pointer-events-none"></div>
-    
+    <div
+      class="absolute z-10 bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-white dark:from-neutral-950 to-transparent pointer-events-none"
+    >
+    </div>
+
     <div class="flex justify-center pt-10 relative z-10">
-      <a href="/projects" class="btn btn-primary">
-        See more projects
-      </a>
+      <a href="/projects" class="btn btn-primary"> See more projects </a>
     </div>
   </div>
 </section>

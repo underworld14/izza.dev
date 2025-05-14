@@ -10,8 +10,8 @@ const experiences = [
       "Led the frontend team for the Central Reporting Platform",
       "Introduced new best practices using the Remix Framework",
       "Developed the web version of Ultravoucher.co.id and improved its product SEO",
-      "Maintained UVL (Ultra Voucher Loyalty System) used by clients such as MRT Jakarta"
-    ]
+      "Maintained UVL (Ultra Voucher Loyalty System) used by clients such as MRT Jakarta",
+    ],
   },
   {
     company: "PT. Software Service Indonesia",
@@ -23,51 +23,58 @@ const experiences = [
       "Developed and optimized view blocks for Property Listing Advertisement (PLA)",
       "Revamped UI for the Content+ Dashboard to improve UX and performance",
       "Improved the Event Collector Library",
-      "Built a Reporting Dashboard for comprehensive analytics"
-    ]
-  }
+      "Built a Reporting Dashboard for comprehensive analytics",
+    ],
+  },
 ];
 ---
 
 <section class="section-spacing container-custom">
   <h2 class="text-2xl sm:text-3xl font-semibold mb-10">Experience</h2>
-  
+
   <div class="space-y-12 relative">
-    {experiences.map((exp, index) => (
-      <div class="relative pl-8 before:absolute before:left-0 before:top-0 before:h-full before:w-px before:bg-neutral-200 dark:before:bg-neutral-800">
-        <div class="absolute left-0 top-1 h-4 w-4 -translate-x-1/2 rounded-full border-2 border-neutral-200 bg-white dark:border-neutral-700 dark:bg-neutral-900"></div>
-        
-        <div class="space-y-3">
-          <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
-            <h3 class="text-xl font-medium">{exp.company}</h3>
-            <span class="text-sm text-neutral-600 dark:text-neutral-400">{exp.period}</span>
-          </div>
+    {
+      experiences.map((exp, index) => (
+        <div class="relative pl-8 before:absolute before:left-0 before:top-0 before:h-full before:w-px before:bg-neutral-200 dark:before:bg-neutral-800">
+          <div class="absolute left-0 top-1 h-4 w-4 -translate-x-1/2 rounded-full border-2 border-neutral-200 bg-white dark:border-neutral-700 dark:bg-neutral-900" />
 
-          <div class="flex flex-col sm:flex-row sm:items-center gap-2 text-neutral-700 dark:text-neutral-300">
-            <span class="font-medium">{exp.position}</span>
-            <span class="hidden sm:inline text-neutral-400">•</span>
-            <span>{exp.location}</span>
-          </div>
+          <div class="space-y-3">
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
+              <h3 class="text-xl font-medium">{exp.company}</h3>
+              <span class="text-sm text-neutral-600 dark:text-neutral-400">
+                {exp.period}
+              </span>
+            </div>
 
-          <div class="mt-3">
-            <p class="font-medium text-neutral-800 dark:text-neutral-200 mb-2">Key Achievements:</p>
-            <ul class="list-disc pl-5 space-y-1 text-neutral-600 dark:text-neutral-400">
-              {exp.achievements.slice(0, 3).map(achievement => (
-                <li>{achievement}</li>
-              ))}
-            </ul>
+            <div class="flex flex-col sm:flex-row sm:items-center gap-2 text-neutral-700 dark:text-neutral-300">
+              <span class="font-medium">{exp.position}</span>
+              <span class="hidden sm:inline text-neutral-400">•</span>
+              <span>{exp.location}</span>
+            </div>
+
+            <div class="mt-3">
+              <p class="font-medium text-neutral-800 dark:text-neutral-200 mb-2">
+                Key Achievements:
+              </p>
+              <ul class="list-disc pl-5 space-y-1 text-neutral-600 dark:text-neutral-400">
+                {exp.achievements.slice(0, 3).map((achievement) => (
+                  <li>{achievement}</li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
-    ))}
-    
+      ))
+    }
+
     {/* Gradient overlay */}
-    <div class="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-white dark:from-neutral-900 to-transparent pointer-events-none"></div>
-    
+    <div
+      class="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-white dark:from-neutral-950 to-transparent pointer-events-none"
+    >
+    </div>
+
     <div class="flex justify-center pt-6 relative z-10">
-      <a href="/experience" class="btn btn-primary">
-        View full experience
-      </a>
+      <a href="/experience" class="btn btn-primary"> View full experience </a>
     </div>
   </div>
 </section>
