@@ -1,7 +1,11 @@
 ---
+import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
+import { BorderBeam } from '@/components/magicui/border-beam'
+
+import izzaPhoto from '../assets/izza.jpeg';
 ---
 
 <Layout 
@@ -25,43 +29,43 @@ import Footer from '../components/Footer.astro';
           </p>
           
           <p>
-            I'm particularly interested in modern frontend frameworks, performance optimization, and creating seamless user experiences. Currently, I'm expanding my knowledge in Generative AI, Retrieval-Augmented Generation (RAG), AI Agents, and Golang to stay at the forefront of technology trends.
+            I'm particularly interested in modern frontend frameworks, performance optimization, and creating seamless user experiences. Outside of my professional work, I enjoy building personal SaaS products and open-source tools, exploring full product lifecycles from ideation to deployment. Currently, I'm expanding my knowledge in Generative AI, Retrieval-Augmented Generation (RAG), AI Agents, and Golang to stay at the forefront of technology trends.
           </p>
           
           <h2 class="text-2xl font-semibold mt-10 mb-4">Core Values</h2>
           
           <div class="grid gap-6 sm:grid-cols-2">
-            <div class="p-5 rounded-lg bg-neutral-100 dark:bg-neutral-800">
+            <div class="relative overflow-hidden p-5 rounded bg-neutral-100 dark:bg-neutral-800">
               <h3 class="font-medium mb-2">Performance-Focused</h3>
               <p class="text-neutral-700 dark:text-neutral-300">Dedicated to creating high-performance web applications with optimized load times and smooth user experiences.</p>
+              <BorderBeam client:load duration={6} size={100} />
             </div>
             
-            <div class="p-5 rounded-lg bg-neutral-100 dark:bg-neutral-800">
+            <div class="relative overflow-hidden p-5 rounded bg-neutral-100 dark:bg-neutral-800">
               <h3 class="font-medium mb-2">User-Centric Design</h3>
               <p class="text-neutral-700 dark:text-neutral-300">Prioritizing intuitive interfaces that solve real problems for users while maintaining elegant, minimalist design principles.</p>
+              <BorderBeam client:load duration={6} size={100} />
             </div>
             
-            <div class="p-5 rounded-lg bg-neutral-100 dark:bg-neutral-800">
+            <div class="relative overflow-hidden p-5 rounded bg-neutral-100 dark:bg-neutral-800">
               <h3 class="font-medium mb-2">Continuous Learning</h3>
               <p class="text-neutral-700 dark:text-neutral-300">Always expanding my knowledge in emerging technologies like Generative AI and RAG to stay at the forefront of the industry.</p>
+              <BorderBeam client:load duration={6} size={100} />
             </div>
             
-            <div class="p-5 rounded-lg bg-neutral-100 dark:bg-neutral-800">
+            <div class="relative overflow-hidden p-5 rounded bg-neutral-100 dark:bg-neutral-800">
               <h3 class="font-medium mb-2">Technical Excellence</h3>
               <p class="text-neutral-700 dark:text-neutral-300">Committed to writing clean, maintainable code with comprehensive testing and documentation for long-term project success.</p>
+              <BorderBeam client:load duration={6} size={100} />
             </div>
           </div>
         </div>
         
         <div>
           <div class="sticky top-24">
-            <div class="rounded-lg overflow-hidden border border-neutral-200 dark:border-neutral-800 mb-6">
-              <div class="aspect-square w-full bg-gradient-to-br from-blue-600 to-indigo-700 flex items-center justify-center">
-                <span class="text-white text-5xl font-bold">YIA</span>
-              </div>
-            </div>
+            <Image src={izzaPhoto} alt="Muhamad Yusril Izza Aulia" class="rounded-lg aspect-square object-cover shadow-sm" />
             
-            <div class="space-y-4">
+            <div class="mt-6 space-y-4">
               <h2 class="text-xl font-semibold">Quick Facts</h2>
               
               <div class="space-y-3">
