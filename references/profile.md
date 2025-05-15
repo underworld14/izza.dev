@@ -2,7 +2,7 @@
 
 📍 Yogyakarta, Indonesia
 📞 0851-7244-1406
-📧 [izzasrv@gmail.com](mailto:izzasrv@gmail.com)
+📧 [yusril@izza.dev](mailto:yusril@izza.dev)
 🔗 [LinkedIn](https://www.linkedin.com/in/izza-srv/)
 💻 [GitHub](https://github.com/underworld14)
 
