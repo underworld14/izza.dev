@@ -1,4 +1,5 @@
 ---
+import { ClientRouter } from "astro:transitions";
 import "../styles/global.css";
 
 interface Props {
@@ -51,6 +52,7 @@ const {
   <body
     class="bg-white text-neutral-900 dark:bg-neutral-950 dark:text-white transition-colors duration-300 antialiased"
   >
+    <ClientRouter />
     <div class="min-h-screen flex flex-col">
       <slot />
     </div>
