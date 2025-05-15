@@ -1,76 +1,81 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Navbar from '../components/Navbar.astro';
-import Footer from '../components/Footer.astro';
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
 
 const experiences = [
   {
     company: "Ultravoucher",
     position: "Frontend Engineer",
-    period: "October 2023 - Present",
+    period: "October 2023 - May 2025",
     location: "Yogyakarta, Indonesia",
-    description: "Leading frontend development for various projects, implementing modern frameworks and best practices to create high-performance web applications.",
+    description:
+      "Leading frontend development for various projects, implementing modern frameworks and best practices to create high-performance web applications.",
     achievements: [
       "Developed and optimized the corporate website ultracorp.co.id, resulting in improved SEO performance",
       "Led the frontend team for the Central Reporting Platform",
       "Introduced new best practices using the Remix Framework",
       "Developed the web version of Ultravoucher.co.id and improved its product SEO",
-      "Maintained UVL (Ultra Voucher Loyalty System) used by clients such as MRT Jakarta"
-    ]
+      "Maintained UVL (Ultra Voucher Loyalty System) used by clients such as MRT Jakarta",
+    ],
   },
   {
     company: "PT. Software Service Indonesia",
     position: "React Developer – Agentpoint Australia",
     period: "October 2021 - October 2023",
     location: "Yogyakarta, Indonesia",
-    description: "Worked on multiple Agentpoint products, focusing on UI optimization, performance improvements, and feature development for property listing platforms.",
+    description:
+      "Worked on multiple Agentpoint products, focusing on UI optimization, performance improvements, and feature development for property listing platforms.",
     achievements: [
       "Maintained and enhanced multiple Agentpoint products",
       "Developed and optimized view blocks for Property Listing Advertisement (PLA)",
       "Revamped UI for the Content+ Dashboard to improve UX and performance",
       "Improved the Event Collector Library",
-      "Built a Reporting Dashboard for comprehensive analytics"
-    ]
+      "Built a Reporting Dashboard for comprehensive analytics",
+    ],
   },
   {
     company: "PT. Software Service Indonesia",
     position: "QA Engineer – Evergen Australia",
     period: "December 2020 - October 2021",
     location: "Yogyakarta, Indonesia",
-    description: "Ensured code quality and functionality through comprehensive testing strategies, focusing on energy management systems and CI/CD integration.",
+    description:
+      "Ensured code quality and functionality through comprehensive testing strategies, focusing on energy management systems and CI/CD integration.",
     achievements: [
       "Conducted testing on DERMS (Distributed Energy Resource Management System)",
       "Designed and maintained end-to-end tests with Mocha & Chai",
       "Integrated testing in CI/CD pipelines to ensure code quality",
       "Updated and maintained platform API documentation",
-      "Reviewed and approved developer merge requests"
-    ]
+      "Reviewed and approved developer merge requests",
+    ],
   },
   {
     company: "PT. Software Service Indonesia",
     position: "Node.js Developer – Pepy",
     period: "October 2020 - December 2020",
     location: "Yogyakarta, Indonesia",
-    description: "Contributed to backend development using Node.js, focusing on API development and integration testing.",
+    description:
+      "Contributed to backend development using Node.js, focusing on API development and integration testing.",
     achievements: [
       "Developed and maintained Pepy's backend system",
       "Designed integration testing strategies",
-      "Documented APIs using Swagger"
-    ]
+      "Documented APIs using Swagger",
+    ],
   },
   {
     company: "PT. Klola Indonesia",
     position: "React Developer",
     period: "December 2019 - October 2020",
     location: "Jakarta, Indonesia",
-    description: "Worked on HRIS platform development, focusing on frontend implementation and codebase modernization.",
+    description:
+      "Worked on HRIS platform development, focusing on frontend implementation and codebase modernization.",
     achievements: [
       "Worked on Klola HRIS Ver. 2 as a junior React developer",
       "Migrated legacy codebase to TypeScript",
       "Created comprehensive application documentation",
-      "Built a Helpdesk API to improve user support features"
-    ]
-  }
+      "Built a Helpdesk API to improve user support features",
+    ],
+  },
 ];
 
 const education = [
@@ -78,192 +83,291 @@ const education = [
     institution: "Asia Cyber University",
     degree: "Bachelor's Degree in Informatics Engineering",
     period: "2022 - Present",
-    description: "Focused on software engineering, web development, and information systems. Applied learning through practical projects and real-world applications."
-  }
+    description:
+      "Focused on software engineering, web development, and information systems. Applied learning through practical projects and real-world applications.",
+  },
 ];
 
 const certifications = [
   {
     name: "JavaScript Testing",
     issuer: "Kent C. Dodds",
-    date: "November 2022"
+    date: "November 2022",
   },
   {
     name: "Belajar Dasar-Dasar DevOps",
     issuer: "Dicoding",
-    date: "June 2022"
+    date: "June 2022",
   },
   {
     name: "Architecting on AWS",
     issuer: "Dicoding",
-    date: "May 2021"
+    date: "May 2021",
   },
   {
     name: "Belajar Membuat Aplikasi Backend untuk Pemula",
     issuer: "Dicoding",
-    date: "May 2021"
+    date: "May 2021",
   },
   {
     name: "Cloud Practitioner Essentials",
     issuer: "Dicoding",
-    date: "April 2021"
+    date: "April 2021",
   },
   {
     name: "JavaScript Fullstack Bootcamp",
     issuer: "Dumbways",
-    date: "October 2019"
-  }
+    date: "October 2019",
+  },
 ];
 
 const skills = {
-  frontend: ["React.js", "React Native", "Next.js", "Remix", "Svelte", "SvelteKit", "JavaScript", "TypeScript", "TailwindCSS", "TanStack Query", "Shadcn UI"],
-  backend: ["Node.js", "Express", "Prisma", "Sequelize", "Adonis.js", "Supabase", "SQL", "Golang", "Fiber"],
-  testing: ["Jest", "Vitest", "React Testing Library", "Cypress", "Mocha", "Chai", "Supertest"],
-  devops: ["GitHub Actions", "Docker", "AWS EC2", "AWS S3", "AWS Lightsail", "AWS Beanstalk", "Fly.io", "DigitalOcean", "Railway"],
+  frontend: [
+    "React.js",
+    "React Native",
+    "Next.js",
+    "Remix",
+    "Svelte",
+    "SvelteKit",
+    "JavaScript",
+    "TypeScript",
+    "TailwindCSS",
+    "TanStack Query",
+    "Shadcn UI",
+  ],
+  backend: [
+    "Node.js",
+    "Express",
+    "Prisma",
+    "Sequelize",
+    "Adonis.js",
+    "Supabase",
+    "SQL",
+    "Golang",
+    "Fiber",
+  ],
+  testing: [
+    "Jest",
+    "Vitest",
+    "React Testing Library",
+    "Cypress",
+    "Mocha",
+    "Chai",
+    "Supertest",
+  ],
+  devops: [
+    "GitHub Actions",
+    "Docker",
+    "AWS EC2",
+    "AWS S3",
+    "AWS Lightsail",
+    "AWS Beanstalk",
+    "Fly.io",
+    "DigitalOcean",
+    "Railway",
+  ],
 };
 ---
 
-<Layout 
+<Layout
   title="Experience | Muhamad Yusril Izza Aulia"
   description="Professional experience, skills, certifications, and background of Muhamad Yusril Izza Aulia, a Frontend Engineer specializing in React, Next.js, Remix, and Svelte development."
 >
   <Navbar />
-  
+
   <main>
     <section class="section-spacing container-custom">
       <h1 class="text-4xl font-bold mb-10">Experience</h1>
-      
+
       <div class="grid gap-12 lg:grid-cols-3">
         <div class="lg:col-span-2">
           <h2 class="text-2xl font-semibold mb-6">Work History</h2>
-          
+
           <div class="space-y-12">
-            {experiences.map((job, index) => (
-              <div class="relative pl-8 before:absolute before:left-0 before:top-0 before:h-full before:w-px before:bg-neutral-200 dark:before:bg-neutral-800">
-                <div class="absolute left-0 top-1 h-4 w-4 -translate-x-1/2 rounded-full border-2 border-neutral-200 bg-white dark:border-neutral-700 dark:bg-neutral-900"></div>
-                
-                <div class="space-y-3">
-                  <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
-                    <h3 class="text-xl font-medium">{job.company}</h3>
-                    <span class="text-sm text-neutral-600 dark:text-neutral-400">{job.period}</span>
-                  </div>
-                  
-                  <div class="flex flex-col sm:flex-row sm:items-center gap-2 text-neutral-700 dark:text-neutral-300">
-                    <span class="font-medium">{job.position}</span>
-                    <span class="hidden sm:inline text-neutral-400">•</span>
-                    <span>{job.location}</span>
-                  </div>
-                  
-                  <p class="text-neutral-600 dark:text-neutral-400">{job.description}</p>
-                  
-                  <div class="pt-2">
-                    <h4 class="text-sm font-semibold mb-2">Key Achievements:</h4>
-                    <ul class="list-disc list-inside space-y-1 text-neutral-600 dark:text-neutral-400">
-                      {job.achievements.map(achievement => (
-                        <li>{achievement}</li>
-                      ))}
-                    </ul>
+            {
+              experiences.map((job, index) => (
+                <div class="relative pl-8 before:absolute before:left-0 before:top-0 before:h-full before:w-px before:bg-neutral-200 dark:before:bg-neutral-800">
+                  <div class="absolute left-0 top-1 h-4 w-4 -translate-x-1/2 rounded-full border-2 border-neutral-200 bg-white dark:border-neutral-700 dark:bg-neutral-900" />
+
+                  <div class="space-y-3">
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
+                      <h3 class="text-xl font-medium">{job.company}</h3>
+                      <span class="text-sm text-neutral-600 dark:text-neutral-400">
+                        {job.period}
+                      </span>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row sm:items-center gap-2 text-neutral-700 dark:text-neutral-300">
+                      <span class="font-medium">{job.position}</span>
+                      <span class="hidden sm:inline text-neutral-400">•</span>
+                      <span>{job.location}</span>
+                    </div>
+
+                    <p class="text-neutral-600 dark:text-neutral-400">
+                      {job.description}
+                    </p>
+
+                    <div class="pt-2">
+                      <h4 class="text-sm font-semibold mb-2">
+                        Key Achievements:
+                      </h4>
+                      <ul class="list-disc list-inside space-y-1 text-neutral-600 dark:text-neutral-400">
+                        {job.achievements.map((achievement) => (
+                          <li>{achievement}</li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))
+            }
           </div>
-          
+
           <h2 class="text-2xl font-semibold mt-16 mb-6">Education</h2>
-          
+
           <div class="space-y-6">
-            {education.map(edu => (
-              <div class="relative pl-8 before:absolute before:left-0 before:top-0 before:h-full before:w-px before:bg-neutral-200 dark:before:bg-neutral-800">
-                <div class="absolute left-0 top-1 h-4 w-4 -translate-x-1/2 rounded-full border-2 border-neutral-200 bg-white dark:border-neutral-700 dark:bg-neutral-900"></div>
-                
-                <div class="space-y-2">
-                  <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
-                    <h3 class="text-xl font-medium">{edu.institution}</h3>
-                    <span class="text-sm text-neutral-600 dark:text-neutral-400">{edu.period}</span>
+            {
+              education.map((edu) => (
+                <div class="relative pl-8 before:absolute before:left-0 before:top-0 before:h-full before:w-px before:bg-neutral-200 dark:before:bg-neutral-800">
+                  <div class="absolute left-0 top-1 h-4 w-4 -translate-x-1/2 rounded-full border-2 border-neutral-200 bg-white dark:border-neutral-700 dark:bg-neutral-900" />
+
+                  <div class="space-y-2">
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
+                      <h3 class="text-xl font-medium">{edu.institution}</h3>
+                      <span class="text-sm text-neutral-600 dark:text-neutral-400">
+                        {edu.period}
+                      </span>
+                    </div>
+
+                    <p class="font-medium text-neutral-700 dark:text-neutral-300">
+                      {edu.degree}
+                    </p>
+                    <p class="text-neutral-600 dark:text-neutral-400">
+                      {edu.description}
+                    </p>
                   </div>
-                  
-                  <p class="font-medium text-neutral-700 dark:text-neutral-300">{edu.degree}</p>
-                  <p class="text-neutral-600 dark:text-neutral-400">{edu.description}</p>
                 </div>
-              </div>
-            ))}
+              ))
+            }
           </div>
-          
-          <h2 class="text-2xl font-semibold mt-16 mb-6">Courses & Certifications</h2>
-          
+
+          <h2 class="text-2xl font-semibold mt-16 mb-6">
+            Courses & Certifications
+          </h2>
+
           <div class="space-y-6">
-            {certifications.map(cert => (
-              <div class="relative pl-8 before:absolute before:left-0 before:top-0 before:h-full before:w-px before:bg-neutral-200 dark:before:bg-neutral-800">
-                <div class="absolute left-0 top-1 h-4 w-4 -translate-x-1/2 rounded-full border-2 border-neutral-200 bg-white dark:border-neutral-700 dark:bg-neutral-900"></div>
-                
-                <div class="space-y-2">
-                  <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
-                    <h3 class="text-xl font-medium">{cert.name}</h3>
-                    <span class="text-sm text-neutral-600 dark:text-neutral-400">{cert.date}</span>
+            {
+              certifications.map((cert) => (
+                <div class="relative pl-8 before:absolute before:left-0 before:top-0 before:h-full before:w-px before:bg-neutral-200 dark:before:bg-neutral-800">
+                  <div class="absolute left-0 top-1 h-4 w-4 -translate-x-1/2 rounded-full border-2 border-neutral-200 bg-white dark:border-neutral-700 dark:bg-neutral-900" />
+
+                  <div class="space-y-2">
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
+                      <h3 class="text-xl font-medium">{cert.name}</h3>
+                      <span class="text-sm text-neutral-600 dark:text-neutral-400">
+                        {cert.date}
+                      </span>
+                    </div>
+
+                    <p class="font-medium text-neutral-700 dark:text-neutral-300">
+                      Issued by {cert.issuer}
+                    </p>
                   </div>
-                  
-                  <p class="font-medium text-neutral-700 dark:text-neutral-300">Issued by {cert.issuer}</p>
                 </div>
-              </div>
-            ))}
+              ))
+            }
           </div>
         </div>
-        
+
         <div class="space-y-8">
-          <div class="rounded-lg border border-neutral-200 p-6 dark:border-neutral-800">
+          <div
+            class="rounded-lg border border-neutral-200 p-6 dark:border-neutral-800"
+          >
             <h2 class="text-xl font-semibold mb-4">Frontend Skills</h2>
-            
+
             <div class="flex flex-wrap gap-2">
-              {skills.frontend.map(skill => (
-                <span class="inline-flex items-center rounded-full bg-blue-50 px-3 py-1 text-sm font-medium text-blue-700 dark:bg-blue-900/20 dark:text-blue-300">
-                  {skill}
-                </span>
-              ))}
+              {
+                skills.frontend.map((skill) => (
+                  <span class="inline-flex items-center rounded-full bg-blue-50 px-3 py-1 text-sm font-medium text-blue-700 dark:bg-blue-900/20 dark:text-blue-300">
+                    {skill}
+                  </span>
+                ))
+              }
             </div>
           </div>
 
-          <div class="rounded-lg border border-neutral-200 p-6 dark:border-neutral-800">
+          <div
+            class="rounded-lg border border-neutral-200 p-6 dark:border-neutral-800"
+          >
             <h2 class="text-xl font-semibold mb-4">Backend Skills</h2>
-            
+
             <div class="flex flex-wrap gap-2">
-              {skills.backend.map(skill => (
-                <span class="inline-flex items-center rounded-full bg-green-50 px-3 py-1 text-sm font-medium text-green-700 dark:bg-green-900/20 dark:text-green-300">
-                  {skill}
-                </span>
-              ))}
+              {
+                skills.backend.map((skill) => (
+                  <span class="inline-flex items-center rounded-full bg-green-50 px-3 py-1 text-sm font-medium text-green-700 dark:bg-green-900/20 dark:text-green-300">
+                    {skill}
+                  </span>
+                ))
+              }
             </div>
           </div>
 
-          <div class="rounded-lg border border-neutral-200 p-6 dark:border-neutral-800">
+          <div
+            class="rounded-lg border border-neutral-200 p-6 dark:border-neutral-800"
+          >
             <h2 class="text-xl font-semibold mb-4">Testing Skills</h2>
-            
+
             <div class="flex flex-wrap gap-2">
-              {skills.testing.map(skill => (
-                <span class="inline-flex items-center rounded-full bg-amber-50 px-3 py-1 text-sm font-medium text-amber-700 dark:bg-amber-900/20 dark:text-amber-300">
-                  {skill}
-                </span>
-              ))}
+              {
+                skills.testing.map((skill) => (
+                  <span class="inline-flex items-center rounded-full bg-amber-50 px-3 py-1 text-sm font-medium text-amber-700 dark:bg-amber-900/20 dark:text-amber-300">
+                    {skill}
+                  </span>
+                ))
+              }
             </div>
           </div>
 
-          <div class="rounded-lg border border-neutral-200 p-6 dark:border-neutral-800">
+          <div
+            class="rounded-lg border border-neutral-200 p-6 dark:border-neutral-800"
+          >
             <h2 class="text-xl font-semibold mb-4">DevOps Skills</h2>
-            
+
             <div class="flex flex-wrap gap-2">
-              {skills.devops.map(skill => (
-                <span class="inline-flex items-center rounded-full bg-indigo-50 px-3 py-1 text-sm font-medium text-indigo-700 dark:bg-indigo-900/20 dark:text-indigo-300">
-                  {skill}
-                </span>
-              ))}
+              {
+                skills.devops.map((skill) => (
+                  <span class="inline-flex items-center rounded-full bg-indigo-50 px-3 py-1 text-sm font-medium text-indigo-700 dark:bg-indigo-900/20 dark:text-indigo-300">
+                    {skill}
+                  </span>
+                ))
+              }
             </div>
           </div>
-          
-          <div class="rounded-lg border border-neutral-200 p-6 dark:border-neutral-800">
+
+          <div
+            class="rounded-lg border border-neutral-200 p-6 dark:border-neutral-800"
+          >
             <h2 class="text-xl font-semibold mb-4">Download Resume</h2>
-            <p class="text-neutral-600 dark:text-neutral-400 mb-4">Get a copy of my full resume in PDF format.</p>
-            
-            <a href="#" class="btn btn-primary w-full flex justify-center gap-2">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5">
+            <p class="text-neutral-600 dark:text-neutral-400 mb-4">
+              Get a copy of my full resume in PDF format.
+            </p>
+
+            <a
+              href="#"
+              class="btn btn-primary w-full flex justify-center gap-2"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="h-5 w-5"
+              >
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                 <polyline points="7 10 12 15 17 10"></polyline>
                 <line x1="12" y1="15" x2="12" y2="3"></line>
@@ -275,6 +379,6 @@ const skills = {
       </div>
     </section>
   </main>
-  
+
   <Footer />
 </Layout>
