@@ -28,5 +28,6 @@
     "@tailwindcss/typography": "^0.5.16",
     "tailwindcss-animate": "^1.0.7",
     "tw-animate-css": "^1.2.9"
-  }
+  },
+  "packageManager": "pnpm@10.10.0"
 }
