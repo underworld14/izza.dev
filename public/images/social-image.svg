@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#0f0f0f"/>
+  <rect x="50" y="50" width="1100" height="530" rx="15" fill="#1a1a1a"/>
+  
+  <!-- Main Content -->
+  <text x="100" y="150" font-family="Inter, sans-serif" font-size="64" font-weight="700" fill="#ffffff">
+    Muhamad Yusril Izza Aulia
+  </text>
+  <text x="100" y="220" font-family="Inter, sans-serif" font-size="36" font-weight="500" fill="#9ca3af">
+    Fullstack Engineer
+  </text>
+  
+  <!-- Frontend Tech Stack -->
+  <g transform="translate(100, 280)">
+    <text font-family="Inter, sans-serif" font-size="24" font-weight="500" fill="#ffffff">
+      React • Next.js • Remix • Svelte • TypeScript
+    </text>
+  </g>
+  
+  <!-- Backend Tech Stack -->
+  <g transform="translate(100, 320)">
+    <text font-family="Inter, sans-serif" font-size="24" font-weight="500" fill="#ffffff">
+      Node.js • Express • Prisma • Supabase • NestJS • Golang
+    </text>
+  </g>
+  
+  <!-- Location -->
+  <g transform="translate(100, 370)">
+    <text font-family="Inter, sans-serif" font-size="20" font-weight="400" fill="#9ca3af">
+      Yogyakarta, Indonesia
+    </text>
+  </g>
+  
+  <!-- Website URL -->
+  <g transform="translate(100, 500)">
+    <text font-family="Inter, sans-serif" font-size="32" font-weight="600" fill="#ffffff">
+      izza.dev
+    </text>
+  </g>
+  
+  <!-- Decorative Element -->
+  <rect x="100" y="240" width="150" height="4" fill="#3b82f6"/>
+</svg>

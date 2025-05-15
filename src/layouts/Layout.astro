@@ -5,11 +5,17 @@ import "../styles/global.css";
 interface Props {
   title?: string;
   description?: string;
+  image?: string;
+  type?: "website" | "article";
+  url?: string;
 }
 
 const {
   title = "Muhamad Yusril Izza Aulia | Frontend Engineer",
   description = "Personal website and portfolio of Muhamad Yusril Izza Aulia, a Frontend Engineer specializing in React, Next.js, Remix, and Svelte development.",
+  image = "/images/social-image.png",
+  type = "website",
+  url = Astro.url.href,
 } = Astro.props;
 ---
 
@@ -21,7 +27,31 @@ const {
     <meta name="description" content={description} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+    <link rel="canonical" href={url} />
     <title>{title}</title>
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content={type} />
+    <meta property="og:url" content={url} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta
+      property="og:image"
+      content={new URL(image, Astro.site || Astro.url.origin).href}
+    />
+    <meta property="og:site_name" content="Izza Dev" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={url} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta
+      property="twitter:image"
+      content={new URL(image, Astro.site || Astro.url.origin).href}
+    />
+    <meta name="twitter:creator" content="@underworld146" />
 
     <!-- Dark mode script - must be inline and in the head to avoid FOUC -->
     <script is:inline>
