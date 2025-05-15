@@ -5,8 +5,11 @@ import react from "@astrojs/react";
 
 import cloudflare from "@astrojs/cloudflare";
 
+import sitemap from "@astrojs/sitemap";
+
 // https://astro.build/config
 export default defineConfig({
+  site: "https://izza.dev",
   vite: {
     plugins: [tailwindcss()],
     resolve: {
@@ -16,6 +19,6 @@ export default defineConfig({
     },
   },
 
-  integrations: [react()],
+  integrations: [react(), sitemap()],
   adapter: cloudflare(),
 });
