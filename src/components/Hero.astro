@@ -3,66 +3,81 @@ import Mail from "@lucide/astro/icons/mail";
 import { RetroGrid } from "@/components/magicui/retro-grid";
 ---
 
-<section class="relative section-spacing container-custom">
-  <div class="max-w-3xl relative z-10">
-    <div class="space-y-6">
-      <h1 class="text-4xl sm:text-5xl font-bold tracking-tight">
-        Yusril Izza Aulia
-      </h1>
-      <p
-        class="text-xl text-neutral-700 dark:text-neutral-300 max-w-prose text-justify"
-      >
-        Frontend & Fullstack Developer passionate about building
-        high-performance web applications and seamless user experiences. Excited
-        about AI Engineering—currently exploring Generative AI, RAG, and AI
-        Agents—while continually expanding my expertise across the full stack.
-        Always learning, always building.
-      </p>
-      <div class="flex flex-wrap gap-4">
-        <a href="/about" class="btn btn-primary"> About Me </a>
-        <a href="/contact" class="btn btn-secondary"> Get in touch </a>
-      </div>
+<section class="relative min-h-[85vh] flex items-center justify-center overflow-hidden py-20">
+  <div class="container-custom relative z-10 w-full flex flex-col items-center text-center">
+    
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-300 text-sm font-medium mb-8 border border-neutral-200 dark:border-neutral-700/50 backdrop-blur-sm shadow-sm">
+      <span class="relative flex h-2 w-2">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+      </span>
+      Available for new opportunities
+    </div>
 
-      <div class="flex items-center gap-4 pt-4">
-        <a
-          href="https://github.com/underworld14"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-neutral-700 hover:text-primary dark:text-neutral-400 dark:hover:text-primary"
-        >
-          <span class="sr-only">GitHub</span>
-          <i class="text-2xl devicon-github-original"></i>
-        </a>
-        <a
-          href="https://linkedin.com/in/izza-srv"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-neutral-700 hover:text-primary dark:text-neutral-400 dark:hover:text-primary"
-        >
-          <span class="sr-only">LinkedIn</span>
-          <i class="text-2xl devicon-linkedin-plain"></i>
-        </a>
-        <a
-          href="mailto:yusril@izza.dev"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-neutral-700 hover:text-primary dark:text-neutral-400 dark:hover:text-primary"
-        >
-          <span class="sr-only">Email</span>
-          <Mail size={24} />
-        </a>
-        <a
-          href="https://x.com/underworld146"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-neutral-700 hover:text-primary dark:text-neutral-400 dark:hover:text-primary"
-        >
-          <span class="sr-only">Twitter</span>
-          <i class="text-2xl devicon-twitter-original"></i>
-        </a>
-      </div>
+    <h1 class="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-balance max-w-4xl leading-tight">
+      Building scalable apps & <br class="hidden sm:block" /> 
+      <span class="text-transparent bg-clip-text bg-gradient-to-r from-neutral-400 to-neutral-800 dark:from-neutral-200 dark:to-neutral-500">
+        seamless experiences
+      </span>
+    </h1>
+    
+    <p class="mt-6 text-lg sm:text-xl text-neutral-500 dark:text-neutral-400 max-w-2xl text-balance leading-relaxed">
+      Hi, I'm Yusril Izza Aulia. A Fullstack Engineer passionate about modern web technologies, AI engineering, and building high-performance systems from the ground up.
+    </p>
+
+    <div class="mt-10 flex flex-wrap items-center justify-center gap-4">
+      <a href="/projects" class="px-6 py-3 rounded-full bg-foreground text-background font-medium hover:scale-105 transition-transform duration-200 shadow-sm">
+        View Projects
+      </a>
+      <a href="/about" class="px-6 py-3 rounded-full bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 text-foreground font-medium hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors duration-200 shadow-sm">
+        About Me
+      </a>
+    </div>
+
+    <div class="mt-12 flex items-center justify-center gap-5">
+      <a
+        href="https://github.com/underworld14"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="p-2.5 rounded-full bg-neutral-100 dark:bg-neutral-900 text-neutral-600 hover:text-foreground dark:text-neutral-400 dark:hover:text-foreground hover:bg-neutral-200 dark:hover:bg-neutral-800 transition-all"
+        aria-label="GitHub"
+      >
+        <i class="text-xl devicon-github-original"></i>
+      </a>
+      <a
+        href="https://linkedin.com/in/izza-srv"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="p-2.5 rounded-full bg-neutral-100 dark:bg-neutral-900 text-neutral-600 hover:text-foreground dark:text-neutral-400 dark:hover:text-foreground hover:bg-neutral-200 dark:hover:bg-neutral-800 transition-all"
+        aria-label="LinkedIn"
+      >
+        <i class="text-xl devicon-linkedin-plain"></i>
+      </a>
+      <a
+        href="mailto:yusril@izza.dev"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="p-2.5 rounded-full bg-neutral-100 dark:bg-neutral-900 text-neutral-600 hover:text-foreground dark:text-neutral-400 dark:hover:text-foreground hover:bg-neutral-200 dark:hover:bg-neutral-800 transition-all"
+        aria-label="Email"
+      >
+        <Mail size={20} />
+      </a>
+      <a
+        href="https://x.com/underworld146"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="p-2.5 rounded-full bg-neutral-100 dark:bg-neutral-900 text-neutral-600 hover:text-foreground dark:text-neutral-400 dark:hover:text-foreground hover:bg-neutral-200 dark:hover:bg-neutral-800 transition-all"
+        aria-label="Twitter"
+      >
+        <i class="text-xl devicon-twitter-original"></i>
+      </a>
     </div>
   </div>
 
-  <RetroGrid className="w-full absolute inset-0" />
+  <div class="absolute inset-0 z-0 pointer-events-none opacity-50 dark:opacity-40 mask-image:linear-gradient(to_bottom,white,transparent)">
+    <RetroGrid />
+  </div>
+  
+  <!-- Gradient subtle background glow -->
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-primary/5 dark:bg-primary/10 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
 </section>

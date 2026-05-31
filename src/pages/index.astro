@@ -10,11 +10,28 @@ import Footer from '../components/Footer.astro';
 ---
 
 <Layout
-	title="Yusril Izza Aulia | Frontend Engineer"
-	description="Personal website of Muhamad Yusril Izza Aulia, showcasing frontend engineering experience with React, Next.js, Remix, and Svelte, along with projects and professional background."
+	title="Yusril Izza Aulia | Fullstack Engineer"
+	description="Personal website of Muhamad Yusril Izza Aulia, showcasing fullstack engineering experience with React, Next.js, Remix, Svelte, Node.js, and Golang, along with projects and professional background."
 >
 	<Navbar />
 	
+	<script type="application/ld+json" set:html={JSON.stringify({
+		"@context": "https://schema.org",
+		"@type": "Person",
+		"name": "Muhamad Yusril Izza Aulia",
+		"jobTitle": "Fullstack Engineer",
+		"url": "https://izza.dev",
+		"sameAs": [
+			"https://github.com/underworld14",
+			"https://linkedin.com/in/izza-srv",
+			"https://x.com/underworld146"
+		],
+		"worksFor": {
+			"@type": "Organization",
+			"name": "Ultravoucher"
+		}
+	})} />
+
 	<main>
 		<Hero />
 		<Skills />

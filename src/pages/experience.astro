@@ -10,13 +10,13 @@ const experiences = [
     period: "October 2023 - May 2025",
     location: "Yogyakarta, Indonesia",
     description:
-      "Leading frontend development for various projects, implementing modern frameworks and best practices to create high-performance web applications.",
+      "Led frontend development across multiple projects, establishing architecture patterns and modern framework conventions to deliver high-performance web applications.",
     achievements: [
-      "Developed and optimized the corporate website ultracorp.co.id, resulting in improved SEO performance",
-      "Led the frontend team for the Central Reporting Platform",
-      "Introduced new best practices using the Remix Framework",
-      "Developed the web version of Ultravoucher.co.id and improved its product SEO",
-      "Maintained UVL (Ultra Voucher Loyalty System) used by clients such as MRT Jakarta",
+      "Optimized ultracorp.co.id for search, increasing organic traffic and brand visibility",
+      "Led frontend architecture for the Central Reporting Platform, establishing component patterns and CI/CD best practices",
+      "Introduced Remix Framework conventions that improved developer velocity and code consistency across the team",
+      "Shipped the web version of Ultravoucher.co.id with product-focused SEO, driving discovery through organic search",
+      "Maintained UVL (Ultra Voucher Loyalty System) ensuring reliability for enterprise clients such as MRT Jakarta",
     ],
   },
   {
@@ -25,13 +25,13 @@ const experiences = [
     period: "October 2021 - October 2023",
     location: "Yogyakarta, Indonesia",
     description:
-      "Worked on multiple Agentpoint products, focusing on UI optimization, performance improvements, and feature development for property listing platforms.",
+      "Owned frontend delivery for Agentpoint's property listing platform, focusing on UI optimization, performance improvements, and feature development.",
     achievements: [
-      "Maintained and enhanced multiple Agentpoint products",
-      "Developed and optimized view blocks for Property Listing Advertisement (PLA)",
-      "Revamped UI for the Content+ Dashboard to improve UX and performance",
-      "Improved the Event Collector Library",
-      "Built a Reporting Dashboard for comprehensive analytics",
+      "Owned frontend delivery for multiple production Agentpoint products, shipping features on schedule",
+      "Built and optimized view blocks for Property Listing Advertisement (PLA), improving listing presentation and engagement",
+      "Revamped the Content+ Dashboard UI, resulting in faster load times and a more intuitive workflow for content managers",
+      "Refactored the Event Collector Library into a reusable, well-tested module adopted across products",
+      "Built a Reporting Dashboard that gave stakeholders real-time visibility into campaign and listing performance",
     ],
   },
   {
@@ -42,11 +42,11 @@ const experiences = [
     description:
       "Ensured code quality and functionality through comprehensive testing strategies, focusing on energy management systems and CI/CD integration.",
     achievements: [
-      "Conducted testing on DERMS (Distributed Energy Resource Management System)",
-      "Designed and maintained end-to-end tests with Mocha & Chai",
-      "Integrated testing in CI/CD pipelines to ensure code quality",
-      "Updated and maintained platform API documentation",
-      "Reviewed and approved developer merge requests",
+      "Conducted end-to-end testing on DERMS (Distributed Energy Resource Management System), ensuring stable production releases",
+      "Designed and maintained automated test suites with Mocha & Chai, catching regressions before deployment",
+      "Integrated testing into CI/CD pipelines, reducing manual QA overhead and speeding up release cycles",
+      "Updated and maintained platform API documentation, improving onboarding for new developers",
+      "Reviewed and approved developer merge requests, upholding code quality standards across the team",
     ],
   },
   {
@@ -57,9 +57,9 @@ const experiences = [
     description:
       "Contributed to backend development using Node.js, focusing on API development and integration testing.",
     achievements: [
-      "Developed and maintained Pepy's backend system",
-      "Designed integration testing strategies",
-      "Documented APIs using Swagger",
+      "Developed and maintained Pepy's backend APIs, powering core application features",
+      "Designed integration testing strategies that validated API contracts and reduced production bugs",
+      "Documented APIs with Swagger, enabling faster frontend and third-party integration",
     ],
   },
   {
@@ -70,10 +70,10 @@ const experiences = [
     description:
       "Worked on HRIS platform development, focusing on frontend implementation and codebase modernization.",
     achievements: [
-      "Worked on Klola HRIS Ver. 2 as a junior React developer",
-      "Migrated legacy codebase to TypeScript",
-      "Created comprehensive application documentation",
-      "Built a Helpdesk API to improve user support features",
+      "Delivered key features for Klola HRIS Ver. 2 as a junior React developer",
+      "Migrated legacy codebase to TypeScript, reducing runtime errors and improving developer experience",
+      "Created comprehensive application documentation, cutting onboarding time for new team members",
+      "Built a Helpdesk API that streamlined user support workflows and reduced ticket resolution time",
     ],
   },
 ];
@@ -176,7 +176,7 @@ const skills = {
 
 <Layout
   title="Experience | Muhamad Yusril Izza Aulia"
-  description="Professional experience, skills, certifications, and background of Muhamad Yusril Izza Aulia, a Frontend Engineer specializing in React, Next.js, Remix, and Svelte development."
+  description="Professional experience, skills, certifications, and background of Muhamad Yusril Izza Aulia, a Fullstack Engineer specializing in React, Next.js, Remix, Svelte, Node.js, and Golang development."
 >
   <Navbar />
 
@@ -190,7 +190,7 @@ const skills = {
 
           <div class="space-y-12">
             {
-              experiences.map((job, index) => (
+              experiences.map((job) => (
                 <div class="relative pl-8 before:absolute before:left-0 before:top-0 before:h-full before:w-px before:bg-neutral-200 dark:before:bg-neutral-800">
                   <div class="absolute left-0 top-1 h-4 w-4 -translate-x-1/2 rounded-full border-2 border-neutral-200 bg-white dark:border-neutral-700 dark:bg-neutral-900" />
 

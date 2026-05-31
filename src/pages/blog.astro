@@ -13,94 +13,113 @@ const posts = await getCollection('blog', ({ data }: { data: { draft?: boolean }
 posts.sort((a: CollectionEntry<'blog'>, b: CollectionEntry<'blog'>) => b.data.date.valueOf() - a.data.date.valueOf());
 
 // Format for display
-const formattedPosts =
-posts.map((post: CollectionEntry<'blog'>) => ({
+const formattedPosts = posts.map((post: CollectionEntry<'blog'>) => ({
   title: post.data.title,
   description: post.data.description,
   date: post.data.date,
   slug: post.slug,
-  categories: post.data.categories
-}))
-;
+  categories: post.data.categories || []
+}));
 
 // Get unique categories
 const allCategories = [...new Set(formattedPosts.flatMap((post) => post.categories))];
 ---
 
 <Layout 
-  title="Blog | Izza Dev"
-  description="Articles and insights about web development, design, and technology."
+  title="Blog | Yusril Izza Aulia"
+  description="Articles and insights about web development, design, frontend architecture, and technology."
 >
   <Navbar />
   
-  <main>
-    <section class="section-spacing container-custom">
-      <h1 class="text-4xl font-bold mb-10">Blog</h1>
-      
-      <div class="grid gap-10 lg:grid-cols-3">
-        <div class="lg:col-span-2 space-y-10">
-          {formattedPosts.map((post) => (
-            <article class="group">
-              <a href={`/blog/${post.slug}`} class="block">
-                <time datetime={post.date} class="text-sm text-neutral-600 dark:text-neutral-400">
-                  {new Date(post.date).toLocaleDateString('en-US', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric'
-                  })}
-                </time>
-                
-                <h2 class="text-2xl font-semibold mt-1 mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                  {post.title}
-                </h2>
-                
-                <p class="text-neutral-600 dark:text-neutral-400 mb-4">{post.description}</p>
+  <main class="flex-1">
+    <section class="py-24 md:py-32">
+      <div class="container-custom">
+        <div class="max-w-2xl mb-16">
+          <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-6">Writing & Notes</h1>
+          <p class="text-lg text-neutral-500 text-balance">
+            Thoughts on software engineering, frontend architecture, AI, and my personal journey building things on the web.
+          </p>
+        </div>
+        
+        <div class="grid gap-16 lg:grid-cols-12">
+          <div class="lg:col-span-8 space-y-12">
+            {formattedPosts.length > 0 ? (
+              formattedPosts.map((post) => (
+                <article class="group relative flex flex-col items-start justify-between">
+                  <div class="flex items-center gap-4 text-xs mb-4">
+                    <time datetime={post.date.toISOString()} class="text-neutral-500 font-medium">
+                      {new Date(post.date).toLocaleDateString('en-US', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric'
+                      })}
+                    </time>
+                    {post.categories.length > 0 && (
+                      <div class="flex gap-2">
+                        {post.categories.slice(0, 2).map(category => (
+                          <span class="relative z-10 rounded-full bg-neutral-100 dark:bg-neutral-800 px-3 py-1 font-medium text-neutral-600 dark:text-neutral-300">
+                            {category}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                  
+                  <div class="group relative">
+                    <h2 class="mt-3 text-2xl font-bold tracking-tight text-foreground group-hover:text-primary transition-colors">
+                      <a href={`/blog/${post.slug}`}>
+                        <span class="absolute inset-0 z-20"></span>
+                        {post.title}
+                      </a>
+                    </h2>
+                    <p class="mt-4 text-neutral-600 dark:text-neutral-400 line-clamp-3 text-pretty leading-relaxed">
+                      {post.description}
+                    </p>
+                  </div>
+                  
+                  <div class="relative z-10 mt-6 flex items-center text-sm font-medium text-primary">
+                    Read article <span aria-hidden="true" class="ml-1 transition-transform group-hover:translate-x-1">&rarr;</span>
+                  </div>
+                </article>
+              ))
+            ) : (
+              <div class="text-center py-20 bg-neutral-50 dark:bg-neutral-900/30 rounded-3xl border border-neutral-200/50 dark:border-neutral-800/50">
+                <p class="text-neutral-500">More articles coming soon.</p>
+              </div>
+            )}
+          </div>
+          
+          <div class="lg:col-span-4 space-y-10">
+            {allCategories.length > 0 && (
+              <div class="rounded-3xl border border-neutral-200/60 bg-neutral-50/50 p-8 dark:border-neutral-800/60 dark:bg-neutral-900/30">
+                <h2 class="text-lg font-bold tracking-tight mb-6">Topics</h2>
                 
                 <div class="flex flex-wrap gap-2">
-                  {post.categories.map(category => (
-                    <span class="inline-flex items-center rounded-full bg-neutral-100 px-2.5 py-0.5 text-xs font-medium text-neutral-800 dark:bg-neutral-800 dark:text-neutral-300">
-                      {category}
+                  {allCategories.map((category) => (
+                    <span class="inline-flex items-center rounded-full bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 px-4 py-2 text-sm font-medium text-neutral-700 dark:text-neutral-300 shadow-sm transition-colors hover:border-primary">
+                      {String(category)}
                     </span>
                   ))}
                 </div>
-              </a>
-            </article>
-          ))}
-        </div>
-        
-        <div class="space-y-8">
-          <div class="rounded-lg border border-neutral-200 p-6 dark:border-neutral-800">
-            <h2 class="text-xl font-semibold mb-4">Categories</h2>
-            
-            <div class="flex flex-wrap gap-2">
-              {allCategories.map((category) => (
-                <a href={`/blog/category/${String(category).toLowerCase().replace(/\s+/g, '-')}`} class="inline-flex items-center rounded-full bg-neutral-100 px-3 py-1 text-sm font-medium text-neutral-700 hover:bg-neutral-200 dark:bg-neutral-800 dark:text-neutral-300 dark:hover:bg-neutral-700 transition-colors">
-                  {String(category)}
-                </a>
-              ))}
-            </div>
-          </div>
-          
-          <div class="rounded-lg border border-neutral-200 p-6 dark:border-neutral-800">
-            <h2 class="text-xl font-semibold mb-4">Newsletter</h2>
-            <p class="text-neutral-600 dark:text-neutral-400 mb-4">Subscribe to get notified about new articles and updates.</p>
-            
-            <form class="space-y-4">
-              <div>
-                <label for="email" class="sr-only">Email address</label>
-                <input 
-                  type="email" 
-                  id="email" 
-                  placeholder="Enter your email" 
-                  class="w-full rounded-md border border-neutral-300 bg-white px-3 py-2 text-neutral-900 placeholder:text-neutral-500 focus:border-blue-500 focus:outline-none dark:border-neutral-700 dark:bg-neutral-900 dark:text-white dark:placeholder:text-neutral-400 dark:focus:border-blue-400"
-                  required
-                />
               </div>
+            )}
+            
+            <div class="rounded-3xl border border-neutral-200/60 bg-neutral-50/50 p-8 dark:border-neutral-800/60 dark:bg-neutral-900/30">
+              <h2 class="text-lg font-bold tracking-tight mb-4">Stay Connected</h2>
+              <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-6 leading-relaxed">
+                Follow me on X (Twitter) for my latest thoughts, projects, and updates on what I'm building.
+              </p>
               
-              <button type="submit" class="btn btn-primary w-full">
-                Subscribe
-              </button>
-            </form>
+              <a
+                href="https://x.com/underworld146"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="w-full flex justify-center items-center gap-2 px-6 py-3 rounded-full bg-foreground text-background font-medium hover:scale-105 transition-transform shadow-sm"
+              >
+                <i class="devicon-twitter-original text-lg"></i>
+                Follow @underworld146
+              </a>
+            </div>
           </div>
         </div>
       </div>

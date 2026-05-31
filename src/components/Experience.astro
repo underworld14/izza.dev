@@ -3,78 +3,86 @@ const experiences = [
   {
     company: "Ultravoucher",
     position: "Frontend Engineer",
-    period: "October 2023 - May 2025",
-    location: "Yogyakarta, Indonesia",
+    period: "Oct 2023 - May 2025",
+    location: "Yogyakarta",
     achievements: [
-      "Developed and optimized the corporate website ultracorp.co.id, resulting in improved SEO performance",
-      "Led the frontend team for the Central Reporting Platform",
-      "Introduced new best practices using the Remix Framework",
-      "Developed the web version of Ultravoucher.co.id and improved its product SEO",
-      "Maintained UVL (Ultra Voucher Loyalty System) used by clients such as MRT Jakarta",
+      "Optimized ultracorp.co.id for search, increasing organic traffic and brand visibility",
+      "Led frontend architecture for the Central Reporting Platform, establishing component patterns",
+      "Introduced Remix Framework conventions that improved developer velocity",
     ],
   },
   {
     company: "PT. Software Service Indonesia",
-    position: "React Developer – Agentpoint Australia",
-    period: "October 2021 - October 2023",
-    location: "Yogyakarta, Indonesia",
+    position: "React Developer",
+    period: "Oct 2021 - Oct 2023",
+    location: "Yogyakarta",
     achievements: [
-      "Maintained and enhanced multiple Agentpoint products",
-      "Developed and optimized view blocks for Property Listing Advertisement (PLA)",
-      "Revamped UI for the Content+ Dashboard to improve UX and performance",
-      "Improved the Event Collector Library",
-      "Built a Reporting Dashboard for comprehensive analytics",
+      "Owned frontend delivery for multiple production Agentpoint products",
+      "Revamped the Content+ Dashboard UI, resulting in faster load times",
+      "Built a Reporting Dashboard that gave stakeholders real-time visibility",
     ],
   },
 ];
 ---
 
-<section class="section-spacing container-custom">
-  <h2 class="text-2xl sm:text-3xl font-semibold mb-10">Experience</h2>
-
-  <div class="space-y-12 relative">
-    {
-      experiences.map((exp, index) => (
-        <div class="relative pl-8 before:absolute before:left-0 before:top-0 before:h-full before:w-px before:bg-neutral-200 dark:before:bg-neutral-800">
-          <div class="absolute left-0 top-1 h-4 w-4 -translate-x-1/2 rounded-full border-2 border-neutral-200 bg-white dark:border-neutral-700 dark:bg-neutral-900" />
-
-          <div class="space-y-3">
-            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
-              <h3 class="text-xl font-medium">{exp.company}</h3>
-              <span class="text-sm text-neutral-600 dark:text-neutral-400">
-                {exp.period}
-              </span>
-            </div>
-
-            <div class="flex flex-col sm:flex-row sm:items-center gap-2 text-neutral-700 dark:text-neutral-300">
-              <span class="font-medium">{exp.position}</span>
-              <span class="hidden sm:inline text-neutral-400">•</span>
-              <span>{exp.location}</span>
-            </div>
-
-            <div class="mt-3">
-              <p class="font-medium text-neutral-800 dark:text-neutral-200 mb-2">
-                Key Achievements:
-              </p>
-              <ul class="list-disc pl-5 space-y-1 text-neutral-600 dark:text-neutral-400">
-                {exp.achievements.slice(0, 3).map((achievement) => (
-                  <li>{achievement}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      ))
-    }
-
-    {/* Gradient overlay */}
-    <div
-      class="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-white dark:from-neutral-950 to-transparent pointer-events-none"
-    >
+<section class="py-24 relative">
+  <div class="container-custom">
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
+      <div>
+        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-4">Work Experience</h2>
+        <p class="text-neutral-500 max-w-xl text-balance">
+          My professional journey in building scalable web applications and leading frontend architectures.
+        </p>
+      </div>
+      <a href="/experience" class="group flex items-center gap-2 text-sm font-medium text-foreground hover:text-neutral-500 transition-colors">
+        View full resume
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform group-hover:translate-x-1">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </a>
     </div>
 
-    <div class="flex justify-center pt-6 relative z-10">
-      <a href="/experience" class="btn btn-primary"> View full experience </a>
+    <div class="relative pl-8 md:pl-0">
+      <!-- Vertical line -->
+      <div class="absolute left-[15px] md:left-1/2 md:-translate-x-1/2 top-0 bottom-0 w-px bg-neutral-200 dark:bg-neutral-800"></div>
+
+      <div class="space-y-12">
+        {experiences.map((exp, index) => (
+          <div class={`relative flex flex-col md:flex-row justify-between md:items-center gap-8 ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
+            
+            <!-- Timeline dot -->
+            <div class="absolute left-[-33px] md:left-1/2 md:-translate-x-1/2 w-8 h-8 rounded-full border-4 border-background bg-foreground shadow-sm z-10 flex items-center justify-center">
+              <div class="w-2 h-2 rounded-full bg-background"></div>
+            </div>
+
+            <!-- Content Card -->
+            <div class={`w-full md:w-[calc(50%-3rem)] ${index % 2 === 0 ? 'md:text-left' : 'md:text-right'}`}>
+              <div class="group block p-6 rounded-3xl bg-neutral-50 dark:bg-neutral-900/50 border border-neutral-200/50 dark:border-neutral-800/50 hover:bg-white dark:hover:bg-neutral-900 hover:shadow-lg transition-all duration-300">
+                <div class={`flex flex-col gap-2 mb-4 ${index % 2 === 0 ? 'md:items-start' : 'md:items-end'}`}>
+                  <span class="inline-block px-3 py-1 rounded-full bg-neutral-200/50 dark:bg-neutral-800 text-xs font-semibold text-neutral-600 dark:text-neutral-300">
+                    {exp.period}
+                  </span>
+                  <h3 class="text-xl font-bold tracking-tight text-foreground">{exp.company}</h3>
+                  <div class="text-sm font-medium text-neutral-500">
+                    {exp.position} • {exp.location}
+                  </div>
+                </div>
+                
+                <ul class={`flex flex-col gap-2 text-sm text-neutral-600 dark:text-neutral-400 ${index % 2 === 0 ? 'md:items-start text-left' : 'md:items-end md:text-right text-left'}`}>
+                  {exp.achievements.map((achievement) => (
+                    <li class="flex items-start gap-2 max-w-sm">
+                      <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-neutral-300 dark:bg-neutral-700 shrink-0"></span>
+                      <span>{achievement}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        ))}
+      </div>
     </div>
   </div>
 </section>

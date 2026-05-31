@@ -4,7 +4,7 @@
 <button
   id="theme-toggle"
   type="button"
-  class="inline-flex h-9 w-9 items-center justify-center rounded-md text-neutral-700 transition-colors hover:text-primary hover:bg-primary/10 dark:text-neutral-400 dark:hover:text-primary dark:hover:bg-primary/10"
+  class="inline-flex h-9 w-9 items-center justify-center rounded-full text-neutral-500 hover:text-foreground hover:bg-neutral-200/50 dark:hover:bg-neutral-700/50 transition-all duration-200"
   aria-label="Toggle dark mode"
 >
   <!-- Sun icon -->
@@ -16,7 +16,7 @@
     stroke-width="2"
     stroke-linecap="round"
     stroke-linejoin="round"
-    class="h-5 w-5 dark:hidden"
+    class="h-4 w-4 dark:hidden"
   >
     <circle cx="12" cy="12" r="5"></circle>
     <line x1="12" y1="1" x2="12" y2="3"></line>
@@ -38,57 +38,48 @@
     stroke-width="2"
     stroke-linecap="round"
     stroke-linejoin="round"
-    class="hidden h-5 w-5 dark:block"
+    class="hidden h-4 w-4 dark:block"
   >
     <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
   </svg>
 </button>
 
-<script is:inline>
-  // On page load or when changing themes, best to add inline in `head` to avoid FOUC
-  function updateTheme() {
-    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  }
-  
-  // Initial theme setup
-  updateTheme();
-</script>
-
 <script>
-  // Get the theme toggle button
-  const themeToggle = document.getElementById('theme-toggle');
-  
-  // Function to set the theme
-  function setTheme(theme: string) {
-    if (theme === 'dark') {
-      document.documentElement.classList.add('dark');
-      localStorage.theme = 'dark';
-    } else {
-      document.documentElement.classList.remove('dark');
-      localStorage.theme = 'light';
-    }
+  function setupThemeToggle() {
+    const themeToggle = document.getElementById('theme-toggle');
     
-    // Force a repaint to fix any transition issues
-    document.body.style.transition = 'background-color 0.3s ease, color 0.3s ease';
-    window.getComputedStyle(document.body).backgroundColor;
+    if (themeToggle) {
+      // Remove old listeners by cloning
+      const newToggle = themeToggle.cloneNode(true);
+      themeToggle.parentNode?.replaceChild(newToggle, themeToggle);
+      
+      newToggle.addEventListener('click', () => {
+        const isDark = document.documentElement.classList.contains('dark');
+        if (isDark) {
+          document.documentElement.classList.remove('dark');
+          localStorage.theme = 'light';
+        } else {
+          document.documentElement.classList.add('dark');
+          localStorage.theme = 'dark';
+        }
+      });
+    }
   }
   
-  // Toggle theme when button is clicked
-  if (themeToggle) {
-    themeToggle.addEventListener('click', () => {
-      const isDark = document.documentElement.classList.contains('dark');
-      setTheme(isDark ? 'light' : 'dark');
-    });
-  }
+  // Setup on initial load
+  setupThemeToggle();
+  
+  // Setup on Astro view transitions
+  document.addEventListener('astro:page-load', setupThemeToggle);
   
   // Listen for system theme changes
   window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
     if (!localStorage.getItem('theme')) {
-      setTheme(e.matches ? 'dark' : 'light');
+      if (e.matches) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
     }
   });
 </script>
