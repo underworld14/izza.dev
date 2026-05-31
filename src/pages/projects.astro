@@ -5,6 +5,7 @@ import Footer from "../components/Footer.astro";
 import { Image } from "astro:assets";
 import { BorderBeam } from "@/components/magicui/border-beam";
 
+import luminapdfImg from "@/assets/projects/luminapdf.png";
 import utarakanImg from "@/assets/projects/utarakan.png";
 import carecryptoImg from "@/assets/projects/carecrypto.png";
 import sharekoreanImg from "@/assets/projects/sharekorean.png";
@@ -14,7 +15,7 @@ const projects = [
   {
     title: "Utarakan.id",
     description:
-      "Anonymous confession platform with over 600 users, integrating modern web technologies and payment processing.",
+      "Anonymous social platform for sharing thoughts and experiences. Personal project attracting 600+ registered users with integrated payment processing.",
     tags: ["SvelteKit", "Supabase", "TWA", "Mayar Payment"],
     link: "https://utarakan.id",
     image: utarakanImg,
@@ -22,8 +23,8 @@ const projects = [
   {
     title: "Carecrypto",
     description:
-      "Crypto community platform for users in Seoul with membership-based access to premium content.",
-    tags: ["Next.js", "Express.js", "MongoDB", "AWS"],
+      "Membership-based crypto community for Seoul residents with integrated payment system and multiple membership tiers.",
+    tags: ["Next.js", "Express.js", "MongoDB", "AWS Amplify", "AWS Elastic Beanstalk"],
     link: "https://carecrypto.com",
     image: carecryptoImg,
   },
@@ -38,10 +39,18 @@ const projects = [
   {
     title: "Sharekorean",
     description:
-      "Job portal for Korean residents in the U.S., offering specialized employment opportunities and resources.",
+      "Community platform with job portal for Koreans in the United States, offering specialized employment opportunities.",
     tags: ["Next.js", "Express.js", "MongoDB", "DigitalOcean"],
     link: "https://sharekorean.com",
     image: sharekoreanImg,
+  },
+  {
+    title: "Abqory Sharia",
+    description:
+      "Course and event management system for Sharia-based economic education, enabling structured learning and event registration.",
+    tags: ["Next.js", "Strapi"],
+    link: "https://abqorysharia.com",
+    image: luminapdfImg,
   }
 ];
 ---
